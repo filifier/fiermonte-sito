@@ -10,3 +10,7 @@
 
 # Claude Code local
 .claude/
+
+# Media originali pesanti dalla fotocamera (il sito online usa solo i .jpg/.mp4 ottimizzati)
+media/foto/*.HEIC
+media/video/*.MOV

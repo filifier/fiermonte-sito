@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storia — Fiermonte Boxing &amp; Fitness</title>
+  <meta name="description" content="La storia di Fiermonte Boxing & Fitness, boutique boxing ai Parioli dal 1996." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('fiermonte_theme');
+        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+</head>
+<body class="page" data-solid-header="true">
+
+  <!-- ============================= HEADER ============================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html#hero" class="brand" aria-label="Fiermonte Boxing & Fitness — home">
+        <img src="media/logo/logo-white.png" alt="Fiermonte Boxing & Fitness" class="brand-logo logo-dark-bg" />
+        <img src="media/logo/logo-dark.png" alt="" aria-hidden="true" class="brand-logo logo-light-bg" />
+      </a>
+
+      <div class="header-actions">
+        <nav class="nav" id="mainNav" aria-label="Navigazione principale">
+          <div class="nav-item has-dropdown">
+            <button type="button" class="nav-link nav-dropdown-toggle" data-i18n="nav.about" aria-haspopup="true" aria-expanded="false">Chi siamo</button>
+            <div class="nav-dropdown">
+              <a href="index.html#chi-siamo" class="nav-drop-link" data-i18n="nav.overview">Panoramica</a>
+              <a href="storia.html" class="nav-drop-link" data-i18n="nav.history">Storia</a>
+              <a href="team.html" class="nav-drop-link" data-i18n="nav.team">Team</a>
+              <a href="calendario.html" class="nav-drop-link" data-i18n="nav.calendar">Calendario</a>
+            </div>
+          </div>
+          <a href="index.html#discipline" class="nav-link" data-i18n="nav.disciplines">Discipline</a>
+          <a href="index.html#plus" class="nav-link" data-i18n="nav.plus">Il nostro plus</a>
+          <a href="index.html#contatti" class="nav-link nav-cta" data-i18n="nav.trial">Prova gratuita</a>
+        </nav>
+
+        <div class="lang-switch" role="group" aria-label="Lingua / Language">
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="true">IT</button>
+          <span class="lang-sep">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <p class="overline reveal" data-i18n="page.kicker">Chi siamo</p>
+        <h1 class="section-title reveal" data-i18n="page.history.title">Storia</h1>
+        <p class="lead reveal" data-i18n="page.soon">Contenuti in arrivo.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="media/logo/logo-white.png" alt="Fiermonte Boxing & Fitness" class="footer-logo logo-dark-bg" />
+      <img src="media/logo/logo-dark.png" alt="" aria-hidden="true" class="footer-logo logo-light-bg" />
+      <div class="footer-meta">
+        <p data-i18n="footer.line1">Fiermonte Boxing &amp; Fitness · Roma Parioli</p>
+        <p data-i18n="footer.line2">Aperti tutti i giorni · 7:00 – 22:00</p>
+      </div>
+      <p class="footer-copy" id="footerCopy"></p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

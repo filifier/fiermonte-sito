@@ -14,7 +14,10 @@
   var HERO_SLIDES = [
     'media/foto/hero-1.jpg',
     'media/foto/hero-2.jpg',
-    'media/foto/hero-3.jpg'
+    'media/foto/hero-3.jpg',
+    'media/foto/hero-4.jpg',
+    'media/foto/hero-5.jpg',
+    'media/foto/hero-6.jpg'
   ];
   var HERO_INTERVAL = 6000; // ms per slide
 
@@ -143,6 +146,8 @@
       var img = document.createElement('img');
       img.alt = '';
       img.decoding = 'async';
+      // la prima slide subito, le altre a richiesta (pagina piu' leggera all'avvio)
+      if (i > 0) img.loading = 'lazy';
       // se la foto non esiste ancora, mostra il placeholder
       img.addEventListener('error', function () { slide.classList.add('no-image'); });
       img.src = src;
@@ -168,11 +173,42 @@
   function initHeader() {
     var header = document.getElementById('siteHeader');
     if (!header) return;
+    // Nelle pagine interne l'header e' sempre solido (non c'e' hero scuro dietro)
+    if (document.body.getAttribute('data-solid-header') === 'true') {
+      header.classList.add('scrolled');
+      return;
+    }
     function onScroll() {
       header.classList.toggle('scrolled', window.scrollY > 40);
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* -------------------------------------------------------------------
+     Menu a tendina "Chi siamo" (desktop hover, mobile tap)
+     ------------------------------------------------------------------- */
+  function initDropdown() {
+    var items = document.querySelectorAll('.nav-item.has-dropdown');
+    items.forEach(function (item) {
+      var toggle = item.querySelector('.nav-dropdown-toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = item.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    });
+    // chiudi le tendine cliccando fuori
+    document.addEventListener('click', function (e) {
+      items.forEach(function (item) {
+        if (!item.contains(e.target)) {
+          item.classList.remove('open');
+          var tg = item.querySelector('.nav-dropdown-toggle');
+          if (tg) tg.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   }
 
   /* -------------------------------------------------------------------
@@ -259,6 +295,7 @@
     initHeroSlideshow();
     initHeader();
     initNav();
+    initDropdown();
     initReveal();
     initForm();
   });

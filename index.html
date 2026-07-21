@@ -37,7 +37,15 @@
 
       <div class="header-actions">
         <nav class="nav" id="mainNav" aria-label="Navigazione principale">
-          <a href="#chi-siamo" class="nav-link" data-i18n="nav.about">Chi siamo</a>
+          <div class="nav-item has-dropdown">
+            <button type="button" class="nav-link nav-dropdown-toggle" data-i18n="nav.about" aria-haspopup="true" aria-expanded="false">Chi siamo</button>
+            <div class="nav-dropdown">
+              <a href="#chi-siamo" class="nav-drop-link" data-i18n="nav.overview">Panoramica</a>
+              <a href="storia.html" class="nav-drop-link" data-i18n="nav.history">Storia</a>
+              <a href="team.html" class="nav-drop-link" data-i18n="nav.team">Team</a>
+              <a href="calendario.html" class="nav-drop-link" data-i18n="nav.calendar">Calendario</a>
+            </div>
+          </div>
           <a href="#discipline" class="nav-link" data-i18n="nav.disciplines">Discipline</a>
           <a href="#plus" class="nav-link" data-i18n="nav.plus">Il nostro plus</a>
           <a href="#contatti" class="nav-link nav-cta" data-i18n="nav.trial">Prova gratuita</a>
@@ -98,9 +106,8 @@
     <section class="section about" id="chi-siamo">
       <div class="container about-grid">
         <div class="about-media reveal">
-          <!-- Placeholder foto: sostituito da media/foto/chi-siamo.jpg -->
-          <div class="media-placeholder" data-media="foto/chi-siamo.jpg">
-            <span>FOTO · chi-siamo.jpg</span>
+          <div class="section-media" data-label="FOTO · chi-siamo.jpg">
+            <img class="section-photo" src="media/foto/chi-siamo.jpg" alt="Interno della palestra Fiermonte ai Parioli" loading="lazy" onerror="this.style.display='none'" />
           </div>
         </div>
         <div class="about-text">
@@ -148,9 +155,8 @@
           </div>
         </div>
         <div class="plus-media reveal">
-          <!-- Placeholder foto: sostituito da media/foto/plus.jpg -->
-          <div class="media-placeholder" data-media="foto/plus.jpg">
-            <span>FOTO · plus.jpg</span>
+          <div class="section-media" data-label="FOTO · plus.jpg">
+            <img class="section-photo" src="media/foto/plus.jpg" alt="Sacchi e attrezzatura nella palestra Fiermonte" loading="lazy" onerror="this.style.display='none'" />
           </div>
         </div>
       </div>

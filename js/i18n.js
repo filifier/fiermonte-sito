@@ -13,9 +13,20 @@ window.TRANSLATIONS = {
 
     /* --- Navigazione --- */
     'nav.about': 'Chi siamo',
+    'nav.overview': 'Panoramica',
+    'nav.history': 'Storia',
+    'nav.team': 'Team',
+    'nav.calendar': 'Calendario',
     'nav.disciplines': 'Discipline',
     'nav.plus': 'Il nostro plus',
     'nav.trial': 'Prova gratuita',
+
+    /* --- Pagine interne (Storia / Team / Calendario) --- */
+    'page.kicker': 'Chi siamo',
+    'page.history.title': 'Storia',
+    'page.team.title': 'Team',
+    'page.calendar.title': 'Calendario',
+    'page.soon': 'Contenuti in arrivo.',
 
     /* --- 1. Hero --- */
     'hero.overline': 'Dal 1996 · Roma Parioli',
@@ -62,9 +73,20 @@ window.TRANSLATIONS = {
 
     /* --- Navigation --- */
     'nav.about': 'About',
+    'nav.overview': 'Overview',
+    'nav.history': 'History',
+    'nav.team': 'Team',
+    'nav.calendar': 'Calendar',
     'nav.disciplines': 'Disciplines',
     'nav.plus': 'Our edge',
     'nav.trial': 'Free trial',
+
+    /* --- Inner pages (History / Team / Calendar) --- */
+    'page.kicker': 'About us',
+    'page.history.title': 'History',
+    'page.team.title': 'Team',
+    'page.calendar.title': 'Calendar',
+    'page.soon': 'Content coming soon.',
 
     /* --- 1. Hero --- */
     'hero.overline': 'Since 1996 · Rome Parioli',
@@ -130,5 +152,9 @@ window.DISCIPLINE = [
   {
     it: { nome: 'Lezioni di gruppo',     desc: "L'energia della classe, il ritmo di un allenamento vero." },
     en: { nome: 'Group classes',         desc: 'The energy of the class, the rhythm of a real workout.' }
+  },
+  {
+    it: { nome: 'Pilates',               desc: 'Controllo, postura, respiro. Forza profonda e mobilità, con precisione.' },
+    en: { nome: 'Pilates',               desc: 'Control, posture, breath. Deep strength and mobility, with precision.' }
   }
 ];

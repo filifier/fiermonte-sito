@@ -246,6 +246,23 @@ ul { list-style: none; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Menu a tendina "Chi siamo" */
+.nav-item { position: relative; }
+.nav-dropdown-toggle { font: inherit; }
+.nav-dropdown-toggle::after {
+  content: "\25BE";
+  margin-left: 7px; font-size: 0.7em;
+  opacity: 0.65; display: inline-block;
+}
+.nav-drop-link {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  transition: opacity .2s var(--ease), background .2s var(--ease);
+}
+.nav-drop-link:hover { opacity: 0.6; }
+
 /* =====================================================================
    1. HERO  (sempre scuro/cinematografico in entrambi i temi)
    ===================================================================== */
@@ -352,6 +369,33 @@ ul { list-style: none; }
   letter-spacing: 0.18em;
   font-size: 0.72rem;
   color: var(--placeholder-fg);
+}
+
+/* Foto di sezione (chi siamo / plus) con cornice, ritaglio e trattamento uniforme */
+.section-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: repeating-linear-gradient(45deg, var(--placeholder-a) 0 12px, var(--placeholder-b) 12px 24px);
+}
+/* etichetta di fallback: visibile solo se la foto manca (img nascosta) */
+.section-media::after {
+  content: attr(data-label);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  text-transform: uppercase; letter-spacing: 0.18em;
+  font-size: 0.72rem; color: var(--placeholder-fg);
+}
+.section-photo {
+  position: relative;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  filter: contrast(1.05) saturate(0.92);
 }
 
 /* =====================================================================
@@ -466,6 +510,30 @@ ul { list-style: none; }
 .form-feedback.err { color: #e5484d; }
 
 /* =====================================================================
+   PAGINE INTERNE (Storia / Team / Calendario)
+   ===================================================================== */
+.page-hero {
+  padding-top: calc(var(--header-h) + 80px);
+  padding-bottom: 90px;
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--line);
+}
+.page-hero .section-title { font-size: clamp(2.6rem, 9vw, 5rem); margin-top: 12px; }
+.page-hero .lead { margin-top: 22px; color: var(--fg-muted); }
+.page-empty {
+  padding-block: 100px;
+  text-align: center;
+  color: var(--fg-faint);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+}
+
+/* =====================================================================
    FOOTER
    ===================================================================== */
 .site-footer { background: var(--bg); border-top: 1px solid var(--line); padding-block: 48px; }
@@ -508,6 +576,33 @@ ul { list-style: none; }
   .nav-toggle { display: none; }
   .disciplines-grid { grid-template-columns: repeat(3, 1fr); }
   .hero-content { max-width: 860px; }
+
+  /* Tendina desktop: pannello sotto la voce */
+  .nav-dropdown {
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 190px;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    padding: 10px 0;
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .nav-item.has-dropdown:hover .nav-dropdown,
+  .nav-item.has-dropdown:focus-within .nav-dropdown,
+  .nav-item.has-dropdown.open .nav-dropdown {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateX(-50%) translateY(4px);
+  }
+  .nav-dropdown .nav-drop-link {
+    padding: 11px 24px;
+    font-size: 0.78rem;
+    color: var(--fg);
+    white-space: nowrap;
+  }
 }
 
 /* =====================================================================
@@ -534,4 +629,18 @@ ul { list-style: none; }
   .nav .nav-link { color: #ffffff; font-size: 1.4rem; letter-spacing: 0.16em; }
   .nav .nav-cta { border-color: #ffffff; padding: 14px 30px; }
   .nav .nav-cta:hover { background: #ffffff; color: #0a0a0a; }
+
+  /* Tendina mobile: si espande in verticale dentro l'overlay */
+  .nav-item.has-dropdown { display: flex; flex-direction: column; align-items: center; }
+  .nav-dropdown {
+    display: none;
+    flex-direction: column; align-items: center;
+    gap: 16px; margin-top: 16px;
+  }
+  .nav-item.has-dropdown.open .nav-dropdown { display: flex; }
+  .nav-item.has-dropdown.open .nav-dropdown-toggle::after { transform: rotate(180deg); }
+  .nav-dropdown .nav-drop-link {
+    color: #ffffff; font-size: 1rem; letter-spacing: 0.16em;
+    opacity: 0.85;
+  }
 }
