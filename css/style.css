@@ -468,6 +468,10 @@ ul { list-style: none; }
   text-transform: uppercase; letter-spacing: 0.18em;
   font-size: 0.72rem; color: var(--fg-muted); margin-top: 8px;
 }
+.plus-hours-weekend {
+  text-transform: uppercase; letter-spacing: 0.14em;
+  font-size: 0.72rem; color: var(--fg-faint); margin-top: 3px;
+}
 
 /* =====================================================================
    5. CONTATTI / FORM

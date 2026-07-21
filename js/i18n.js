@@ -54,8 +54,9 @@ window.TRANSLATIONS = {
     /* --- 4. Il nostro plus --- */
     'plus.overline': 'Il nostro plus',
     'plus.title': 'Con te, sempre',
-    'plus.lead': 'I nostri istruttori sono presenti dalle 7:00 alle 22:00, ogni giorno. Non ti alleni da solo: ti seguiamo noi.',
-    'plus.hoursLabel': 'ogni giorno · sempre seguito',
+    'plus.lead': 'I nostri istruttori sono sempre in sala con te. Non ti alleni da solo: ti seguiamo noi.',
+    'plus.hoursWeekday': 'Lunedì – Venerdì',
+    'plus.hoursWeekend': 'Sabato 8 – 18 &nbsp;·&nbsp; Domenica chiuso',
 
     /* --- 5. Contatti / Form --- */
     'contact.overline': 'Prova gratuita',
@@ -70,7 +71,7 @@ window.TRANSLATIONS = {
 
     /* --- Footer --- */
     'footer.line1': 'Fiermonte Boxing &amp; Fitness · Roma Parioli',
-    'footer.line2': 'Aperti tutti i giorni · 7:00 – 22:00',
+    'footer.line2': 'Lun – Ven 7 – 22 · Sab 8 – 18 · Dom chiuso',
     'footer.copy': '© {year} Fiermonte Boxing &amp; Fitness. Tutti i diritti riservati.'
   },
 
@@ -121,8 +122,9 @@ window.TRANSLATIONS = {
     /* --- 4. Our edge --- */
     'plus.overline': 'Our edge',
     'plus.title': 'With you, always',
-    'plus.lead': "Our trainers are here from 7:00 to 22:00, every day. You never train alone: we're right beside you.",
-    'plus.hoursLabel': 'every day · always guided',
+    'plus.lead': "Our trainers are always on the floor with you. You never train alone: we're right beside you.",
+    'plus.hoursWeekday': 'Monday – Friday',
+    'plus.hoursWeekend': 'Saturday 8 – 18 &nbsp;·&nbsp; Sunday closed',
 
     /* --- 5. Contact / Form --- */
     'contact.overline': 'Free trial',
@@ -137,7 +139,7 @@ window.TRANSLATIONS = {
 
     /* --- Footer --- */
     'footer.line1': 'Fiermonte Boxing &amp; Fitness · Rome Parioli',
-    'footer.line2': 'Open every day · 7:00 – 22:00',
+    'footer.line2': 'Mon – Fri 7 – 22 · Sat 8 – 18 · Sun closed',
     'footer.copy': '© {year} Fiermonte Boxing &amp; Fitness. All rights reserved.'
   }
 };
@@ -148,24 +150,24 @@ window.TRANSLATIONS = {
    ===================================================================== */
 window.DISCIPLINE = [
   {
-    it: { nome: 'Boxing',                desc: 'Tecnica, potenza, disciplina. Dal primo guantone alla forma agonistica.' },
-    en: { nome: 'Boxing',                desc: 'Technique, power, discipline. From your first glove to competitive shape.' }
+    it: { nome: 'Prepugilistica',        desc: 'Le basi del pugilato: tecnica, movimento e condizione fisica. Il punto di partenza per chiunque.' },
+    en: { nome: 'Boxing basics',         desc: 'Boxing fundamentals: technique, movement and conditioning. The starting point for everyone.' }
   },
   {
-    it: { nome: 'Sparring',              desc: 'Il pugilato vero, in sicurezza, guidati dai nostri istruttori.' },
-    en: { nome: 'Sparring',              desc: 'Real boxing, safely, guided by our trainers.' }
+    it: { nome: 'Boxe agonistica',       desc: 'Il pugilato vero: sparring e preparazione agonistica, seguiti dai nostri maestri.' },
+    en: { nome: 'Competitive boxing',    desc: 'Real boxing: sparring and competitive preparation, guided by our coaches.' }
+  },
+  {
+    it: { nome: 'Light boxing',          desc: 'Pugilato tecnico senza contatto: tutti i benefici della boxe, in totale sicurezza.' },
+    en: { nome: 'Light boxing',          desc: 'Non-contact technical boxing: all the benefits of the sport, in complete safety.' }
   },
   {
     it: { nome: 'Aeroboxing',            desc: 'Boxe in musica, in gruppo. Cardio ad alta intensità, zero noia.' },
     en: { nome: 'Aeroboxing',            desc: 'Boxing to music, in a group. High-intensity cardio, zero boredom.' }
   },
   {
-    it: { nome: 'Cardio & Conditioning', desc: 'Forza e resistenza, costruite lezione dopo lezione.' },
-    en: { nome: 'Cardio & Conditioning', desc: 'Strength and endurance, built session after session.' }
-  },
-  {
-    it: { nome: 'Lezioni di gruppo',     desc: "L'energia della classe, il ritmo di un allenamento vero." },
-    en: { nome: 'Group classes',         desc: 'The energy of the class, the rhythm of a real workout.' }
+    it: { nome: 'Lezioni di gruppo',     desc: "Allenamenti funzionali, cardio & conditioning, GAG. L'energia del gruppo." },
+    en: { nome: 'Group classes',         desc: 'Functional training, cardio & conditioning, legs-abs-glutes. The energy of the group.' }
   },
   {
     it: { nome: 'Pilates',               desc: 'Controllo, postura, respiro. Forza profonda e mobilità, con precisione.' },
