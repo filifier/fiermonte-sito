@@ -15,9 +15,7 @@
     'media/foto/hero-1.jpg',
     'media/foto/hero-2.jpg',
     'media/foto/hero-3.jpg',
-    'media/foto/hero-4.jpg',
-    'media/foto/hero-5.jpg',
-    'media/foto/hero-6.jpg'
+    'media/foto/hero-5.jpg'
   ];
   var HERO_INTERVAL = 6000; // ms per slide
 
