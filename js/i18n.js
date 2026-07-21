@@ -20,7 +20,7 @@ window.TRANSLATIONS = {
     /* --- 1. Hero --- */
     'hero.overline': 'Dal 1996 · Roma Parioli',
     'hero.title': 'Allenati<br>da campione',
-    'hero.sub': "Fiermonte Boxing &amp; Fitness è la boutique fitness e benessere ai Parioli, nata da un secolo di tradizione pugilistica di famiglia. Ridefiniamo cosa può essere una palestra di boxe: dal pugilato al cardio, dalle lezioni di gruppo al conditioning, con metodologie all'avanguardia, spazi d'eccellenza e istruttori esperti in ogni disciplina.",
+    'hero.sub': "Boutique fitness e boxing ai Parioli dal 1996. Pugilato, cardio, conditioning, lezioni di gruppo: un'unica esperienza di allenamento d'élite, in uno spazio pensato per chi non si accontenta.",
     'hero.cta': 'Prenota la tua prova gratuita',
 
     /* --- 2. Chi siamo --- */
@@ -69,7 +69,7 @@ window.TRANSLATIONS = {
     /* --- 1. Hero --- */
     'hero.overline': 'Since 1996 · Rome Parioli',
     'hero.title': 'Train like<br>a champion',
-    'hero.sub': "Fiermonte Boxing &amp; Fitness is Rome Parioli's boutique for fitness and wellbeing, built on a century of family boxing tradition. We're redefining what a boxing gym can be — from boxing to cardio, from group classes to conditioning — with progressive training methods, elite-standard spaces and expert trainers across every discipline.",
+    'hero.sub': "Boutique fitness and boxing in Rome's Parioli since 1996. Boxing, cardio, conditioning, group classes: one elite training experience, in a space built for those who expect more.",
     'hero.cta': 'Book your free trial',
 
     /* --- 2. About --- */
