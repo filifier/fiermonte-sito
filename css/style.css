@@ -173,7 +173,7 @@ ul { list-style: none; }
   justify-content: space-between;
 }
 .brand { display: inline-flex; align-items: center; }
-.brand-logo { height: 54px; width: auto; }
+.brand-logo { height: 60px; width: auto; }
 /* Scambio logo: chiaro su fondo scuro, scuro su fondo chiaro */
 .logo-light-bg { display: none; }   /* logo scuro, per header chiaro */
 :root[data-theme="light"] .site-header.scrolled:not(.menu-open) .brand .logo-dark-bg { display: none; }
