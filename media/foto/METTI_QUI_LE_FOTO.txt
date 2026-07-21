@@ -1,0 +1,35 @@
+FOTO DEL SITO
+=============
+
+Metti in questa cartella le foto girate in palestra con questi nomi esatti,
+cosi' il sito le collega da solo. Puoi cambiarle quando vuoi tenendo il nome.
+
+HERO / SFONDO INIZIALE (il carosello a tutto schermo che si apre per primo)
+    hero-1.jpg
+    hero-2.jpg
+    hero-3.jpg
+    -> Foto orizzontali, belle e d'impatto, della struttura.
+       Scorrono in dissolvenza dietro la scritta principale.
+       Vuoi piu' o meno foto? Si aggiungono/tolgono in js/main.js (HERO_SLIDES).
+
+CHI SIAMO (sezione "Una storia che parla per noi")
+    chi-siamo.jpg          -> foto ambiente / ritratto storico
+
+DISCIPLINE (una foto per scheda, verticale o quadrata)
+    disciplina-boxing.jpg
+    disciplina-sparring.jpg
+    disciplina-aeroboxing.jpg
+    disciplina-cardio.jpg
+    disciplina-gruppo.jpg
+
+IL NOSTRO PLUS ("Con te, sempre")
+    plus.jpg               -> istruttore che segue un allievo
+
+Consigli:
+- Formato: JPG.
+- Peso: sotto ~300 KB l'una (ridimensionale a max 1600px lato lungo).
+- Bianco e nero o desaturate rendono meglio con la grafica del sito,
+  ma vanno bene anche a colori.
+
+Finche' una foto non c'e', al suo posto compare un riquadro placeholder
+grigio con l'etichetta: il sito funziona lo stesso.

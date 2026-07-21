@@ -1,0 +1,537 @@
+/* =====================================================================
+   FIERMONTE BOXING & FITNESS — style.css
+   Minimal bianco/nero · mobile-first · nessun framework
+   Temi: scuro (default) e chiaro, via [data-theme] su <html>.
+   ===================================================================== */
+
+/* ---------- Token di tema ---------- */
+:root {
+  /* palette grezza */
+  --font-display: 'Oswald', Impact, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --header-h: 68px;
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* TEMA SCURO (default) */
+  --bg: #0a0a0a;
+  --bg-alt: #141414;
+  --fg: #ffffff;
+  --fg-muted: #9a9a9a;
+  --fg-faint: #555555;
+  --line: rgba(255, 255, 255, 0.14);
+  --card-bg: #0a0a0a;
+  --card-bg-hover: #141414;
+  --btn-bg: #ffffff;
+  --btn-fg: #0a0a0a;
+  --header-bg: rgba(10, 10, 10, 0.92);
+  --placeholder-a: #1a1a1a;
+  --placeholder-b: #161616;
+  --placeholder-fg: #6a6a6a;
+}
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-alt: #f4f4f3;
+  --fg: #0f0f0f;
+  --fg-muted: #6a6a6a;
+  --fg-faint: #a0a0a0;
+  --line: rgba(0, 0, 0, 0.14);
+  --card-bg: #ffffff;
+  --card-bg-hover: #f4f4f3;
+  --btn-bg: #0f0f0f;
+  --btn-fg: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --placeholder-a: #e7e7e5;
+  --placeholder-b: #efefed;
+  --placeholder-fg: #b3b3b3;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+
+/* ---------- Layout helper ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 22px;
+}
+
+.section { padding-block: 88px; }
+
+/* ---------- Tipografia condivisa ---------- */
+.overline {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.1rem, 7vw, 3.6rem);
+}
+
+.section-head { margin-bottom: 46px; }
+.section-head.center { text-align: center; max-width: 640px; margin-inline: auto; }
+
+.lead {
+  font-size: 1.12rem;
+  font-weight: 400;
+  color: var(--fg);
+  opacity: 0.92;
+  margin-bottom: 18px;
+}
+
+/* ---------- Bottoni ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.86rem;
+  font-weight: 500;
+  padding: 16px 32px;
+  transition: transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+.btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1.5px solid var(--btn-bg);
+}
+.btn-primary:hover { background: transparent; color: var(--fg); transform: translateY(-2px); }
+.btn-block { width: 100%; text-align: center; }
+
+/* =====================================================================
+   HEADER
+   Colori guidati da --hdr-* cosi' si adattano a scroll e tema.
+   Non scrollato = trasparente sopra l'hero scuro -> testo bianco.
+   Scrollato = sfondo del tema -> testo del tema.
+   Menu aperto = trasparente sopra overlay scuro -> testo bianco.
+   ===================================================================== */
+.site-header {
+  --hdr-fg: #ffffff;      /* colore icone/testo header */
+  --hdr-fg-inv: #0a0a0a;  /* colore opposto (per hover pieni) */
+  --hdr-bg: transparent;
+  --hdr-border: transparent;
+
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--header-h);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: var(--hdr-bg);
+  border-bottom: 1px solid var(--hdr-border);
+  transition: background .4s var(--ease), border-color .4s var(--ease);
+}
+.site-header.scrolled {
+  --hdr-fg: var(--fg);
+  --hdr-fg-inv: var(--bg);
+  --hdr-bg: var(--header-bg);
+  --hdr-border: var(--line);
+  backdrop-filter: blur(10px);
+}
+/* Quando il menu mobile e' aperto l'header torna trasparente su overlay scuro */
+.site-header.menu-open {
+  --hdr-fg: #ffffff;
+  --hdr-fg-inv: #0a0a0a;
+  --hdr-bg: transparent;
+  --hdr-border: transparent;
+  backdrop-filter: none;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { display: inline-flex; align-items: center; }
+.brand-logo { height: 42px; width: auto; }
+/* Scambio logo: chiaro su fondo scuro, scuro su fondo chiaro */
+.logo-light-bg { display: none; }   /* logo scuro, per header chiaro */
+:root[data-theme="light"] .site-header.scrolled:not(.menu-open) .brand .logo-dark-bg { display: none; }
+:root[data-theme="light"] .site-header.scrolled:not(.menu-open) .brand .logo-light-bg { display: block; }
+
+.header-actions { display: flex; align-items: center; gap: 18px; }
+
+/* Selettore lingua IT / EN */
+.lang-switch {
+  display: flex; align-items: center; gap: 5px;
+  font-family: var(--font-display);
+}
+.lang-btn {
+  color: var(--hdr-fg);
+  opacity: 0.5;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 4px 1px;
+  transition: opacity .25s var(--ease), color .25s var(--ease);
+}
+.lang-btn:hover { opacity: 0.85; }
+.lang-btn.active { opacity: 1; }
+.lang-sep { color: var(--hdr-fg); opacity: 0.35; font-size: 0.8rem; }
+
+/* Toggle tema chiaro/scuro */
+.theme-toggle {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--hdr-fg);
+  transition: opacity .25s var(--ease);
+}
+.theme-toggle:hover { opacity: 0.65; }
+.theme-toggle svg { width: 20px; height: 20px; display: block; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+.nav { display: none; }
+.nav-link {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--hdr-fg);
+  transition: opacity .25s;
+}
+.nav-link:hover { opacity: 0.6; }
+.nav-cta {
+  border: 1.5px solid var(--hdr-fg);
+  padding: 9px 20px;
+}
+.nav-cta:hover { background: var(--hdr-fg); color: var(--hdr-fg-inv); opacity: 1; }
+
+/* Hamburger */
+.nav-toggle {
+  width: 42px; height: 42px;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 5px;
+  z-index: 110;
+}
+.nav-toggle span {
+  width: 24px; height: 2px; background: var(--hdr-fg);
+  transition: transform .3s var(--ease), opacity .3s var(--ease), background .3s var(--ease);
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =====================================================================
+   1. HERO  (sempre scuro/cinematografico in entrambi i temi)
+   ===================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 30%, #1c1c1c 0%, #0a0a0a 70%);
+}
+/* Carosello foto di sfondo */
+.hero-slideshow { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease);
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+}
+.hero-slide.active img { animation: heroZoom 7.2s ease-out both; }
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
+}
+.hero-slide.no-image {
+  background: repeating-linear-gradient(45deg, #141414 0 14px, #0f0f0f 14px 28px);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-slide.no-image img { display: none; }
+.hero-slide.no-image::after {
+  content: attr(data-label);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.78rem;
+  color: #3a3a3a;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.8) 100%);
+}
+.hero-content { position: relative; z-index: 2; padding-top: var(--header-h); }
+/* testo hero sempre chiaro (sta su immagini scure) */
+.hero .overline { color: rgba(255,255,255,0.72); }
+.hero-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  font-size: clamp(2.9rem, 13vw, 6.5rem);
+  margin: 14px 0 22px;
+  color: #ffffff;
+}
+.hero-sub {
+  font-size: 1.08rem;
+  color: rgba(255,255,255,0.88);
+  max-width: 520px;
+  margin-bottom: 34px;
+}
+.hero .btn-primary { background: #ffffff; color: #0a0a0a; border-color: #ffffff; }
+.hero .btn-primary:hover { background: transparent; color: #ffffff; }
+
+/* Indicatore scroll */
+.hero-scroll {
+  position: absolute; bottom: 26px; left: 50%;
+  transform: translateX(-50%); z-index: 2;
+  width: 26px; height: 42px;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 14px;
+}
+.hero-scroll span {
+  position: absolute; top: 8px; left: 50%;
+  width: 3px; height: 8px; background: #ffffff;
+  border-radius: 2px; transform: translateX(-50%);
+  animation: scrollDot 1.8s var(--ease) infinite;
+}
+@keyframes scrollDot {
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  40% { opacity: 1; }
+  80%, 100% { opacity: 0; transform: translate(-50%, 14px); }
+}
+
+/* =====================================================================
+   PLACEHOLDER MEDIA (foto non ancora caricate)
+   ===================================================================== */
+.media-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: repeating-linear-gradient(45deg, var(--placeholder-a) 0 12px, var(--placeholder-b) 12px 24px);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+.media-placeholder span {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--placeholder-fg);
+}
+
+/* =====================================================================
+   2. CHI SIAMO
+   ===================================================================== */
+.about { background: var(--bg); }
+.about-grid { display: grid; gap: 40px; }
+.about-media .media-placeholder { aspect-ratio: 4 / 5; }
+
+/* =====================================================================
+   3. DISCIPLINE
+   ===================================================================== */
+.disciplines { background: var(--bg-alt); border-block: 1px solid var(--line); }
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.discipline-card {
+  position: relative;
+  background: var(--card-bg);
+  padding: 34px 28px 30px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  transition: background .35s var(--ease);
+}
+.discipline-card:hover { background: var(--card-bg-hover); }
+.discipline-index {
+  position: absolute; top: 26px; right: 26px;
+  font-family: var(--font-display);
+  font-size: 0.8rem; letter-spacing: 0.1em;
+  color: var(--fg-faint);
+}
+.discipline-name {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  margin-bottom: 12px;
+  color: var(--fg);
+}
+.discipline-desc { color: var(--fg-muted); font-size: 0.98rem; max-width: 42ch; }
+.discipline-card::after {
+  content: ""; position: absolute; left: 28px; bottom: 0;
+  width: 34px; height: 3px; background: var(--fg);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+.discipline-card:hover::after { transform: scaleX(1); }
+
+/* =====================================================================
+   4. IL NOSTRO PLUS
+   ===================================================================== */
+.plus { background: var(--bg); }
+.plus-grid { display: grid; gap: 40px; }
+.plus-media .media-placeholder { aspect-ratio: 4 / 5; }
+.plus-hours {
+  margin-top: 30px;
+  display: flex; flex-direction: column;
+  border-left: 3px solid var(--fg);
+  padding-left: 20px;
+}
+.plus-hours-num {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 2.6rem; line-height: 1;
+  letter-spacing: 0.02em;
+}
+.plus-hours-label {
+  text-transform: uppercase; letter-spacing: 0.18em;
+  font-size: 0.72rem; color: var(--fg-muted); margin-top: 8px;
+}
+
+/* =====================================================================
+   5. CONTATTI / FORM
+   ===================================================================== */
+.contact { background: var(--bg-alt); border-top: 1px solid var(--line); }
+.contact-form { max-width: 520px; margin-inline: auto; }
+.field { margin-bottom: 20px; }
+.field label {
+  display: block;
+  font-family: var(--font-display);
+  text-transform: uppercase; letter-spacing: 0.16em;
+  font-size: 0.72rem; color: var(--fg-muted); margin-bottom: 8px;
+}
+.field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--line);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  padding: 10px 2px;
+  transition: border-color .3s var(--ease);
+}
+.field input:focus { outline: none; border-color: var(--fg); }
+.field input::placeholder { color: var(--fg-faint); }
+.contact-form .btn { margin-top: 12px; }
+.form-feedback {
+  margin-top: 18px; text-align: center;
+  font-size: 0.95rem; min-height: 1.4em;
+  color: var(--fg-muted);
+}
+.form-feedback.ok { color: var(--fg); }
+.form-feedback.err { color: #e5484d; }
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.site-footer { background: var(--bg); border-top: 1px solid var(--line); padding-block: 48px; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+.footer-logo { height: 64px; width: auto; }
+/* Scambio logo footer secondo il tema */
+:root[data-theme="light"] .site-footer .logo-dark-bg { display: none; }
+:root[data-theme="light"] .site-footer .logo-light-bg { display: block; }
+.footer-meta p { color: var(--fg-muted); font-size: 0.92rem; }
+.footer-copy { color: var(--fg-faint); font-size: 0.8rem; }
+
+/* =====================================================================
+   ANIMAZIONE REVEAL ALLO SCROLL
+   ===================================================================== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .hero-scroll span { animation: none; }
+  .hero-slide.active img { animation: none; transform: none; }
+}
+
+/* =====================================================================
+   BREAKPOINT — TABLET
+   ===================================================================== */
+@media (min-width: 720px) {
+  .section { padding-block: 110px; }
+  .disciplines-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
+  .plus-grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 60px; }
+  .plus-media { order: 2; }
+}
+
+/* =====================================================================
+   BREAKPOINT — DESKTOP
+   ===================================================================== */
+@media (min-width: 960px) {
+  .nav { display: flex; align-items: center; gap: 34px; }
+  .nav-toggle { display: none; }
+  .disciplines-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-content { max-width: 860px; }
+}
+
+/* =====================================================================
+   NAV MOBILE (overlay a tutto schermo, sempre scuro per coerenza)
+   ===================================================================== */
+@media (max-width: 959px) {
+  .nav {
+    /* altezza esplicita: un antenato con backdrop-filter puo' diventare
+       il containing block dei figli fixed, quindi non usiamo inset:0 */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh; height: 100svh;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(6px);
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 30px;
+    transform: translateY(-100%);
+    transition: transform .45s var(--ease);
+    display: flex;
+  }
+  .nav.open { transform: translateY(0); }
+  /* nell'overlay scuro i link sono sempre bianchi */
+  .nav .nav-link { color: #ffffff; font-size: 1.4rem; letter-spacing: 0.16em; }
+  .nav .nav-cta { border-color: #ffffff; padding: 14px 30px; }
+  .nav .nav-cta:hover { background: #ffffff; color: #0a0a0a; }
+}

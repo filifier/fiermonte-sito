@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiermonte Boxing &amp; Fitness — Boutique Boxing ai Parioli, Roma</title>
+  <meta name="description" content="Fiermonte Boxing & Fitness: boutique boxing ai Parioli dal 1996, da una tradizione pugilistica centenaria. Boxing, sparring, aeroboxing, cardio & conditioning. Prima lezione di prova gratuita." />
+
+  <!-- Font: Oswald (titoli, richiama il lettering del logo) + Inter (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Applica il tema salvato prima del render, per evitare il lampo di colore -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('fiermonte_theme');
+        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ============================= HEADER ============================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand" aria-label="Fiermonte Boxing & Fitness — home">
+        <img src="media/logo/logo-white.png" alt="Fiermonte Boxing & Fitness" class="brand-logo logo-dark-bg" />
+        <img src="media/logo/logo-dark.png" alt="" aria-hidden="true" class="brand-logo logo-light-bg" />
+      </a>
+
+      <div class="header-actions">
+        <nav class="nav" id="mainNav" aria-label="Navigazione principale">
+          <a href="#chi-siamo" class="nav-link" data-i18n="nav.about">Chi siamo</a>
+          <a href="#discipline" class="nav-link" data-i18n="nav.disciplines">Discipline</a>
+          <a href="#plus" class="nav-link" data-i18n="nav.plus">Il nostro plus</a>
+          <a href="#contatti" class="nav-link nav-cta" data-i18n="nav.trial">Prova gratuita</a>
+        </nav>
+
+        <!-- Selettore lingua -->
+        <div class="lang-switch" role="group" aria-label="Lingua / Language">
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="true">IT</button>
+          <span class="lang-sep">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <!-- Toggle tema chiaro/scuro -->
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================= 1. HERO ============================= -->
+    <section class="hero" id="hero">
+      <!-- Carosello di foto della struttura a tutto schermo, generato da JS
+           (vedi HERO_SLIDES in js/main.js). Le foto vanno in media/foto/
+           come hero-1.jpg, hero-2.jpg, hero-3.jpg. Finche' non ci sono,
+           compaiono placeholder scuri con etichetta. -->
+      <div class="hero-slideshow" id="heroSlideshow" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <p class="overline reveal" data-i18n="hero.overline">Dal 1996 · Roma Parioli</p>
+        <h1 class="hero-title reveal" data-i18n="hero.title">Allenati<br />da campione</h1>
+        <p class="hero-sub reveal" data-i18n="hero.sub">
+          Fiermonte Boxing &amp; Fitness è la boutique del pugilato ai Parioli.
+          Trent'anni di palestra, un secolo di tradizione di famiglia sul ring.
+        </p>
+        <a href="#contatti" class="btn btn-primary reveal" data-i18n="hero.cta">Prenota la tua prova gratuita</a>
+      </div>
+
+      <a href="#chi-siamo" class="hero-scroll" aria-label="Scorri in basso">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ============================= 2. CHI SIAMO ============================= -->
+    <section class="section about" id="chi-siamo">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <!-- Placeholder foto: sostituito da media/foto/chi-siamo.jpg -->
+          <div class="media-placeholder" data-media="foto/chi-siamo.jpg">
+            <span>FOTO · chi-siamo.jpg</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="overline reveal" data-i18n="about.overline">Chi siamo</p>
+          <h2 class="section-title reveal" data-i18n="about.title">Una storia che<br />parla per noi</h2>
+          <p class="lead reveal" data-i18n="about.lead">
+            Fiermonte nasce nel 1996 ai Parioli, ma le sue radici affondano in una
+            tradizione di famiglia nel pugilato che dura da oltre un secolo.
+          </p>
+          <p class="reveal" data-i18n="about.body">
+            Trent'anni di palestra, cento di boxe: qui il pugilato non si insegna,
+            si tramanda. Accessibile a chiunque, a qualunque età. Non serve
+            esperienza. Serve solo voglia di iniziare.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 3. DISCIPLINE ============================= -->
+    <section class="section disciplines" id="discipline">
+      <div class="container">
+        <div class="section-head">
+          <p class="overline reveal" data-i18n="disc.overline">Discipline</p>
+          <h2 class="section-title reveal" data-i18n="disc.title">Cosa alleni da noi</h2>
+        </div>
+        <!-- Le schede sono generate da JS a partire da window.DISCIPLINE (js/i18n.js).
+             Per aggiungerne una in futuro basta aggiungere un oggetto li'. -->
+        <div class="disciplines-grid" id="disciplinesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============================= 4. IL NOSTRO PLUS ============================= -->
+    <section class="section plus" id="plus">
+      <div class="container plus-grid">
+        <div class="plus-text">
+          <p class="overline reveal" data-i18n="plus.overline">Il nostro plus</p>
+          <h2 class="section-title reveal" data-i18n="plus.title">Con te, sempre</h2>
+          <p class="lead reveal" data-i18n="plus.lead">
+            I nostri istruttori sono presenti dalle 7:00 alle 22:00, ogni giorno.
+            Non ti alleni da solo: ti seguiamo noi.
+          </p>
+          <div class="plus-hours reveal">
+            <span class="plus-hours-num">7 – 22</span>
+            <span class="plus-hours-label" data-i18n="plus.hoursLabel">ogni giorno · sempre seguito</span>
+          </div>
+        </div>
+        <div class="plus-media reveal">
+          <!-- Placeholder foto: sostituito da media/foto/plus.jpg -->
+          <div class="media-placeholder" data-media="foto/plus.jpg">
+            <span>FOTO · plus.jpg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= 5. FORM / CTA FINALE ============================= -->
+    <section class="section contact" id="contatti">
+      <div class="container contact-inner">
+        <div class="section-head center">
+          <p class="overline reveal" data-i18n="contact.overline">Prova gratuita</p>
+          <h2 class="section-title reveal" data-i18n="contact.title">La prima lezione è nostra</h2>
+          <p class="lead reveal" data-i18n="contact.lead">Lasciaci un contatto. Ti richiamiamo entro 24 ore.</p>
+        </div>
+
+        <!-- NOTA: il form per ora NON invia nulla. La logica e' in js/main.js
+             e mostra solo un messaggio di conferma. Da collegare in seguito. -->
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="nome" data-i18n="contact.name">Nome</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="telefono" data-i18n="contact.phone">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" required />
+          </div>
+          <div class="field">
+            <label for="email" data-i18n="contact.email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.submit">Prenota ora</button>
+          <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="media/logo/logo-white.png" alt="Fiermonte Boxing & Fitness" class="footer-logo logo-dark-bg" />
+      <img src="media/logo/logo-dark.png" alt="" aria-hidden="true" class="footer-logo logo-light-bg" />
+      <div class="footer-meta">
+        <p data-i18n="footer.line1">Fiermonte Boxing &amp; Fitness · Roma Parioli</p>
+        <p data-i18n="footer.line2">Aperti tutti i giorni · 7:00 – 22:00</p>
+      </div>
+      <p class="footer-copy" id="footerCopy"></p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

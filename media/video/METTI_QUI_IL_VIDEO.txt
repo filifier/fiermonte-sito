@@ -1,0 +1,20 @@
+VIDEO HERO
+==========
+
+Metti in questa cartella il video di sfondo dell'hero con questo nome esatto:
+
+    hero.mp4
+
+Consigli:
+- Formato: MP4 (H.264), muto, in loop.
+- Durata: 10-20 secondi che si ripetono bene.
+- Peso: idealmente sotto i 5-8 MB (comprimilo, es. con HandBrake).
+- Orientamento: girato orizzontale (16:9). Il sito lo ritaglia da solo su mobile.
+
+Opzionale ma consigliato: metti anche un fotogramma di anteprima
+(mostrato mentre il video carica) con nome:
+
+    hero-poster.jpg
+
+Finche' questi file non ci sono, l'hero mostra uno sfondo nero pulito
+con il logo: il sito funziona lo stesso.
