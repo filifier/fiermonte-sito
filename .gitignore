@@ -7,3 +7,6 @@
 
 # Log/temp
 *.log
+
+# Claude Code local
+.claude/

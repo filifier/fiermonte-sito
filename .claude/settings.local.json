@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python3 -m http.server 8137)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8137/index.html)"
-    ]
-  }
-}
