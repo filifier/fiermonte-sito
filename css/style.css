@@ -248,16 +248,10 @@ ul { list-style: none; }
 
 /* Menu a tendina "Chi siamo" */
 .nav-item { position: relative; }
-.nav-dropdown-toggle { font: inherit; }
-.nav-dropdown-toggle::after {
-  content: "\25BE";
-  margin-left: 7px; font-size: 0.7em;
-  opacity: 0.65; display: inline-block;
-}
 .nav-drop-link {
   font-family: var(--font-display);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   font-weight: 400;
   transition: opacity .2s var(--ease), background .2s var(--ease);
 }
@@ -577,11 +571,19 @@ ul { list-style: none; }
   .disciplines-grid { grid-template-columns: repeat(3, 1fr); }
   .hero-content { max-width: 860px; }
 
-  /* Tendina desktop: pannello sotto la voce */
+  /* Tendina desktop: si apre passando col mouse (hover), niente click necessario */
+  /* Ponte invisibile: mantiene attivo l'hover mentre il mouse scende sulla tendina */
+  .nav-item.has-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: -16px; right: -16px;
+    height: 22px;
+  }
   .nav-dropdown {
     position: absolute;
     top: 100%; left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(12px);
     min-width: 190px;
     background: var(--header-bg);
     backdrop-filter: blur(12px);
@@ -595,11 +597,11 @@ ul { list-style: none; }
   .nav-item.has-dropdown:focus-within .nav-dropdown,
   .nav-item.has-dropdown.open .nav-dropdown {
     opacity: 1; visibility: visible; pointer-events: auto;
-    transform: translateX(-50%) translateY(4px);
+    transform: translateX(-50%) translateY(6px);
   }
   .nav-dropdown .nav-drop-link {
     padding: 11px 24px;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     color: var(--fg);
     white-space: nowrap;
   }
@@ -638,7 +640,6 @@ ul { list-style: none; }
     gap: 16px; margin-top: 16px;
   }
   .nav-item.has-dropdown.open .nav-dropdown { display: flex; }
-  .nav-item.has-dropdown.open .nav-dropdown-toggle::after { transform: rotate(180deg); }
   .nav-dropdown .nav-drop-link {
     color: #ffffff; font-size: 1rem; letter-spacing: 0.16em;
     opacity: 0.85;

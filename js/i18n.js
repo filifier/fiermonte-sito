@@ -12,6 +12,7 @@ window.TRANSLATIONS = {
     'page.title': 'Fiermonte Boxing & Fitness — Boutique Boxing ai Parioli, Roma',
 
     /* --- Navigazione --- */
+    'nav.home': 'Home',
     'nav.about': 'Chi siamo',
     'nav.overview': 'Panoramica',
     'nav.history': 'Storia',
@@ -19,13 +20,19 @@ window.TRANSLATIONS = {
     'nav.calendar': 'Calendario',
     'nav.disciplines': 'Discipline',
     'nav.plus': 'Il nostro plus',
+    'nav.community': 'Community',
+    'nav.shop': 'Shop',
     'nav.trial': 'Prova gratuita',
 
-    /* --- Pagine interne (Storia / Team / Calendario) --- */
+    /* --- Pagine interne (Storia / Team / Calendario / Community / Shop) --- */
     'page.kicker': 'Chi siamo',
     'page.history.title': 'Storia',
     'page.team.title': 'Team',
     'page.calendar.title': 'Calendario',
+    'page.community.kicker': 'Articoli · Interviste · Storie',
+    'page.community.title': 'Community',
+    'page.shop.kicker': 'Merchandise',
+    'page.shop.title': 'Shop',
     'page.soon': 'Contenuti in arrivo.',
 
     /* --- 1. Hero --- */
@@ -72,6 +79,7 @@ window.TRANSLATIONS = {
     'page.title': 'Fiermonte Boxing & Fitness — Boutique Boxing in Parioli, Rome',
 
     /* --- Navigation --- */
+    'nav.home': 'Home',
     'nav.about': 'About',
     'nav.overview': 'Overview',
     'nav.history': 'History',
@@ -79,13 +87,19 @@ window.TRANSLATIONS = {
     'nav.calendar': 'Calendar',
     'nav.disciplines': 'Disciplines',
     'nav.plus': 'Our edge',
+    'nav.community': 'Community',
+    'nav.shop': 'Shop',
     'nav.trial': 'Free trial',
 
-    /* --- Inner pages (History / Team / Calendar) --- */
+    /* --- Inner pages (History / Team / Calendar / Community / Shop) --- */
     'page.kicker': 'About us',
     'page.history.title': 'History',
     'page.team.title': 'Team',
     'page.calendar.title': 'Calendar',
+    'page.community.kicker': 'Articles · Interviews · Stories',
+    'page.community.title': 'Community',
+    'page.shop.kicker': 'Merchandise',
+    'page.shop.title': 'Shop',
     'page.soon': 'Content coming soon.',
 
     /* --- 1. Hero --- */
