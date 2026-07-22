@@ -531,6 +531,40 @@ ul { list-style: none; }
   font-size: 0.8rem;
 }
 
+/* Pagina Discipline (Lista): righe foto + descrizione */
+.page-hero--compact { min-height: auto; padding-bottom: 30px; border-bottom: none; }
+.disc-list-section { padding-top: 10px; }
+.disc-list { display: flex; flex-direction: column; gap: 60px; }
+.disc-row { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: center; }
+.disc-row-media {
+  position: relative; width: 100%; aspect-ratio: 3 / 2; overflow: hidden;
+  border: 1px solid var(--line);
+  background: repeating-linear-gradient(45deg, var(--placeholder-a) 0 12px, var(--placeholder-b) 12px 24px);
+}
+.disc-row-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: contrast(1.03) saturate(0.96);
+}
+.disc-row-media.no-image img { display: none; }
+.disc-row-media.no-image::after {
+  content: attr(data-label); position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: 0.18em; font-size: 0.72rem; color: var(--placeholder-fg);
+}
+.disc-row-num { font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.1em; color: var(--fg-faint); }
+.disc-row-name {
+  font-family: var(--font-display); text-transform: uppercase; font-weight: 600;
+  font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1; letter-spacing: 0.01em;
+  margin: 8px 0 14px;
+}
+.disc-row-desc { color: var(--fg-muted); font-size: 1.05rem; max-width: 46ch; }
+
+@media (min-width: 760px) {
+  .disc-row { grid-template-columns: 1.1fr 1fr; gap: 50px; }
+  .disc-row:nth-child(even) .disc-row-media { order: 2; }
+}
+
 /* =====================================================================
    FOOTER
    ===================================================================== */
@@ -644,6 +678,8 @@ ul { list-style: none; }
     gap: 16px; margin-top: 16px;
   }
   .nav-item.has-dropdown.open .nav-dropdown { display: flex; }
+  /* "Discipline" e' un link: le sue voci (Lista, Calendario) restano sempre visibili */
+  .nav-item.has-dropdown.is-link .nav-dropdown { display: flex; margin-top: 12px; }
   .nav-dropdown .nav-drop-link {
     color: #ffffff; font-size: 1rem; letter-spacing: 0.16em;
     opacity: 0.85;

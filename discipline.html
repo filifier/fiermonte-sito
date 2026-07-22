@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop — Fiermonte Boxing &amp; Fitness</title>
-  <meta name="description" content="Shop di Fiermonte Boxing & Fitness: merchandise e prenotazione con ritiro in palestra." />
+  <title>Discipline — Fiermonte Boxing &amp; Fitness</title>
+  <meta name="description" content="Le discipline di Fiermonte Boxing & Fitness: prepugilistica, boxe agonistica, light boxing, aeroboxing, lezioni di gruppo e pilates." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,11 +77,17 @@
   </header>
 
   <main>
-    <section class="section page-hero">
+    <section class="section page-hero page-hero--compact">
       <div class="container">
-        <p class="overline reveal" data-i18n="page.shop.kicker">Merchandise</p>
-        <h1 class="section-title reveal" data-i18n="page.shop.title">Shop</h1>
-        <p class="lead reveal" data-i18n="page.soon">Contenuti in arrivo.</p>
+        <p class="overline reveal" data-i18n="page.disc.kicker">I nostri corsi</p>
+        <h1 class="section-title reveal" data-i18n="page.disc.title">Le discipline</h1>
+        <p class="lead reveal" data-i18n="page.disc.intro">Sei percorsi, dalla boxe al fitness. Trova il tuo.</p>
+      </div>
+    </section>
+    <section class="section disc-list-section">
+      <div class="container">
+        <!-- Righe generate da JS (renderDisciplineList in main.js), stessi dati di i18n.js -->
+        <div class="disc-list" id="disciplineList"></div>
       </div>
     </section>
   </main>

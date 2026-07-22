@@ -19,10 +19,16 @@ window.TRANSLATIONS = {
     'nav.team': 'Team',
     'nav.calendar': 'Calendario',
     'nav.disciplines': 'Discipline',
+    'nav.list': 'Lista',
     'nav.plus': 'Il nostro plus',
     'nav.community': 'Community',
     'nav.shop': 'Shop',
     'nav.trial': 'Prova gratuita',
+
+    /* --- Pagina Discipline (Lista) --- */
+    'page.disc.kicker': 'I nostri corsi',
+    'page.disc.title': 'Le discipline',
+    'page.disc.intro': 'Sei percorsi, dalla boxe al fitness. Trova il tuo.',
 
     /* --- Pagine interne (Storia / Team / Calendario / Community / Shop) --- */
     'page.kicker': 'Chi siamo',
@@ -87,10 +93,16 @@ window.TRANSLATIONS = {
     'nav.team': 'Team',
     'nav.calendar': 'Calendar',
     'nav.disciplines': 'Disciplines',
+    'nav.list': 'List',
     'nav.plus': 'Our edge',
     'nav.community': 'Community',
     'nav.shop': 'Shop',
     'nav.trial': 'Free trial',
+
+    /* --- Disciplines page (List) --- */
+    'page.disc.kicker': 'Our courses',
+    'page.disc.title': 'Our disciplines',
+    'page.disc.intro': 'Six paths, from boxing to fitness. Find yours.',
 
     /* --- Inner pages (History / Team / Calendar / Community / Shop) --- */
     'page.kicker': 'About us',
@@ -150,26 +162,32 @@ window.TRANSLATIONS = {
    ===================================================================== */
 window.DISCIPLINE = [
   {
+    img: 'media/foto/disc-prepugilistica.jpg',
     it: { nome: 'Prepugilistica',        desc: 'Le basi del pugilato: tecnica, movimento e condizione fisica. Il punto di partenza per chiunque.' },
     en: { nome: 'Boxing basics',         desc: 'Boxing fundamentals: technique, movement and conditioning. The starting point for everyone.' }
   },
   {
+    img: 'media/foto/disc-boxe-agonistica.jpg',
     it: { nome: 'Boxe agonistica',       desc: 'Il pugilato vero: sparring e preparazione agonistica, seguiti dai nostri maestri.' },
     en: { nome: 'Competitive boxing',    desc: 'Real boxing: sparring and competitive preparation, guided by our coaches.' }
   },
   {
+    img: 'media/foto/disc-light-boxing.jpg',
     it: { nome: 'Light boxing',          desc: 'Pugilato tecnico senza contatto: tutti i benefici della boxe, in totale sicurezza.' },
     en: { nome: 'Light boxing',          desc: 'Non-contact technical boxing: all the benefits of the sport, in complete safety.' }
   },
   {
+    img: 'media/foto/disc-aeroboxing.jpg',
     it: { nome: 'Aeroboxing',            desc: 'Boxe in musica, in gruppo. Cardio ad alta intensità, zero noia.' },
     en: { nome: 'Aeroboxing',            desc: 'Boxing to music, in a group. High-intensity cardio, zero boredom.' }
   },
   {
+    img: 'media/foto/disc-gruppo.jpg',
     it: { nome: 'Lezioni di gruppo',     desc: "Allenamenti funzionali, cardio & conditioning, GAG. L'energia del gruppo." },
     en: { nome: 'Group classes',         desc: 'Functional training, cardio & conditioning, legs-abs-glutes. The energy of the group.' }
   },
   {
+    /* foto Pilates in arrivo: senza img la pagina Lista mostra un segnaposto */
     it: { nome: 'Pilates',               desc: 'Controllo, postura, respiro. Forza profonda e mobilità, con precisione.' },
     en: { nome: 'Pilates',               desc: 'Control, posture, breath. Deep strength and mobility, with precision.' }
   }

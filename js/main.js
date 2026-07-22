@@ -86,6 +86,31 @@
     grid.innerHTML = html;
   }
 
+  /* Pagina "Lista" discipline: righe foto + descrizione (usa gli stessi dati) */
+  function renderDisciplineList() {
+    var box = document.getElementById('disciplineList');
+    if (!box || !window.DISCIPLINE) return;
+    var html = '';
+    window.DISCIPLINE.forEach(function (d, i) {
+      var data = d[currentLang] || d[DEFAULT_LANG];
+      var n = ('0' + (i + 1)).slice(-2);
+      var media = d.img
+        ? '<img src="' + d.img + '" alt="' + data.nome + '" loading="lazy" onerror="this.closest(\'.disc-row-media\').classList.add(\'no-image\')" />'
+        : '';
+      var mediaCls = d.img ? '' : ' no-image';
+      html +=
+        '<article class="disc-row reveal in">' +
+          '<div class="disc-row-media' + mediaCls + '" data-label="' + data.nome + '">' + media + '</div>' +
+          '<div class="disc-row-text">' +
+            '<span class="disc-row-num">' + n + '</span>' +
+            '<h2 class="disc-row-name">' + data.nome + '</h2>' +
+            '<p class="disc-row-desc">' + data.desc + '</p>' +
+          '</div>' +
+        '</article>';
+    });
+    box.innerHTML = html;
+  }
+
   /* -------------------------------------------------------------------
      2. i18n — applica la lingua a tutta la pagina
      ------------------------------------------------------------------- */
@@ -102,6 +127,7 @@
     if (copy) copy.innerHTML = t('footer.copy').replace('{year}', new Date().getFullYear());
     // discipline (dipendono dalla lingua)
     renderDiscipline();
+    renderDisciplineList();
   }
 
   function updateLangButtons() {
@@ -191,6 +217,9 @@
     items.forEach(function (item) {
       var toggle = item.querySelector('.nav-dropdown-toggle');
       if (!toggle) return;
+      // Solo i toggle <button> aprono la tendina al click.
+      // Se il toggle e' un link (<a>), lascialo navigare normalmente.
+      if (toggle.tagName !== 'BUTTON') return;
       toggle.addEventListener('click', function (e) {
         e.preventDefault();
         var open = item.classList.toggle('open');
