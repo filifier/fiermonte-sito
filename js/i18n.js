@@ -27,7 +27,7 @@ window.TRANSLATIONS = {
 
     /* --- Pagina Discipline (Lista) --- */
     'page.disc.kicker': 'I nostri corsi',
-    'page.disc.title': 'Le discipline',
+    'page.disc.title': 'Le nostre discipline',
     'page.disc.intro': 'Sette percorsi, dalla boxe al fitness. Trova il tuo.',
     'disc.cat.boxing': 'Boxing',
     'disc.cat.fitness': 'Fitness',
