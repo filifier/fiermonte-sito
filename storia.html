@@ -47,7 +47,7 @@
               <a href="calendario.html" class="nav-drop-link" data-i18n="nav.calendar">Calendario</a>
             </div>
           </div>
-          <a href="index.html#plus" class="nav-link" data-i18n="nav.plus">Il nostro plus</a>
+          <a href="metodo.html" class="nav-link" data-i18n="nav.plus">Il nostro metodo</a>
           <a href="community.html" class="nav-link" data-i18n="nav.community">Community</a>
           <a href="shop.html" class="nav-link" data-i18n="nav.shop">Shop</a>
           <a href="index.html#contatti" class="nav-link nav-cta" data-i18n="nav.trial">Prova gratuita</a>
@@ -77,13 +77,33 @@
   </header>
 
   <main>
-    <section class="section page-hero">
+    <section class="section page-hero page-hero--compact">
       <div class="container">
         <p class="overline reveal" data-i18n="page.kicker">Chi siamo</p>
-        <h1 class="section-title reveal" data-i18n="page.history.title">Storia</h1>
-        <p class="lead reveal" data-i18n="page.soon">Contenuti in arrivo.</p>
+        <h1 class="section-title reveal" data-i18n="page.history.title">La storia del brand</h1>
+        <p class="lead reveal" data-i18n="page.history.lead">Trent'anni di palestra, un secolo di tradizione di famiglia sul ring.</p>
       </div>
     </section>
+
+    <!-- Narrazione -->
+    <section class="section storia-intro">
+      <div class="container container--narrow">
+        <h2 class="storia-h2 reveal" data-i18n="storia.intro.title">La nostra storia: l'autenticità del ring nel cuore di Roma</h2>
+        <p class="prose-p reveal" data-i18n="storia.intro.p1"></p>
+        <p class="prose-p reveal" data-i18n="storia.intro.p2"></p>
+        <p class="prose-p reveal" data-i18n="storia.intro.p3"></p>
+        <p class="prose-p reveal" data-i18n="storia.intro.p4"></p>
+      </div>
+    </section>
+
+    <!-- Timeline scorrevole (righe generate da JS: renderStoriaTimeline) -->
+    <section class="section storia-timeline-section">
+      <div class="container">
+        <p class="overline reveal" data-i18n="storia.timeline.title">Le tappe</p>
+        <div class="tl" id="storiaTimeline"></div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============================= FOOTER ============================= -->

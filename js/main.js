@@ -86,29 +86,117 @@
     grid.innerHTML = html;
   }
 
-  /* Pagina "Lista" discipline: righe foto + descrizione (usa gli stessi dati) */
+  /* Pagina "Lista" discipline: due famiglie (Boxing / Fitness) apribili.
+     openCat sopravvive ai re-render, cosi' il cambio lingua non richiude il pannello. */
+  var DISC_CATS = ['boxing', 'fitness'];
+  var openCat = null;
+
+  function discRowHtml(d, i) {
+    var data = d[currentLang] || d[DEFAULT_LANG];
+    var n = ('0' + (i + 1)).slice(-2);
+    var media = d.img
+      ? '<img src="' + d.img + '" alt="' + data.nome + '" loading="lazy" onerror="this.closest(\'.disc-row-media\').classList.add(\'no-image\')" />'
+      : '';
+    var mediaCls = d.img ? '' : ' no-image';
+    return '<article class="disc-row reveal in">' +
+        '<div class="disc-row-media' + mediaCls + '" data-label="' + data.nome + '">' + media + '</div>' +
+        '<div class="disc-row-text">' +
+          '<span class="disc-row-num">' + n + '</span>' +
+          '<h2 class="disc-row-name">' + data.nome + '</h2>' +
+          '<p class="disc-row-desc">' + data.desc + '</p>' +
+        '</div>' +
+      '</article>';
+  }
+
   function renderDisciplineList() {
     var box = document.getElementById('disciplineList');
     if (!box || !window.DISCIPLINE) return;
+
+    var heads = '';
+    var panels = '';
+
+    DISC_CATS.forEach(function (cat) {
+      var items = window.DISCIPLINE.filter(function (d) { return d.cat === cat; });
+      var count = items.length === 1
+        ? t('disc.cat.count.one')
+        : t('disc.cat.count.many').replace('{n}', items.length);
+      var open = openCat === cat;
+
+      heads +=
+        '<button type="button" class="disc-cat-head' + (open ? ' is-open' : '') + '" data-cat="' + cat + '"' +
+          ' aria-expanded="' + open + '" aria-controls="discPanel-' + cat + '">' +
+          '<span class="disc-cat-label">' +
+            '<span class="disc-cat-name">' + t('disc.cat.' + cat) + '</span>' +
+            '<span class="disc-cat-sub">' + t('disc.cat.' + cat + '.sub') + '</span>' +
+          '</span>' +
+          '<span class="disc-cat-foot">' +
+            '<span class="disc-cat-count">' + count + '</span>' +
+            '<span class="disc-cat-icon" aria-hidden="true"></span>' +
+          '</span>' +
+        '</button>';
+
+      panels +=
+        '<div class="disc-cat-panel" id="discPanel-' + cat + '" data-cat="' + cat + '"' + (open ? '' : ' hidden') + '>' +
+          '<div class="disc-list">' + items.map(discRowHtml).join('') + '</div>' +
+        '</div>';
+    });
+
+    box.innerHTML = heads + panels;
+  }
+
+  /* Apre/chiude senza rigenerare l'HTML (le foto gia' caricate restano). */
+  function syncDisciplineCats() {
+    var box = document.getElementById('disciplineList');
+    if (!box) return;
+    box.querySelectorAll('.disc-cat-head').forEach(function (h) {
+      var on = h.getAttribute('data-cat') === openCat;
+      h.classList.toggle('is-open', on);
+      h.setAttribute('aria-expanded', String(on));
+    });
+    box.querySelectorAll('.disc-cat-panel').forEach(function (p) {
+      p.hidden = p.getAttribute('data-cat') !== openCat;
+    });
+  }
+
+  function initDisciplineCats() {
+    var box = document.getElementById('disciplineList');
+    if (!box) return;
+    // delega: il listener sopravvive ai re-render di renderDisciplineList()
+    box.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.disc-cat-head') : null;
+      if (!btn || !box.contains(btn)) return;
+      var cat = btn.getAttribute('data-cat');
+      openCat = (openCat === cat) ? null : cat;  // ri-clic chiude
+      syncDisciplineCats();
+    });
+  }
+
+  /* Pagina "Storia del brand": timeline verticale scorrevole (dati window.STORIA).
+     I box senza foto restano vuoti, pronti per una foto futura. */
+  function renderStoriaTimeline() {
+    var box = document.getElementById('storiaTimeline');
+    if (!box || !window.STORIA) return;
     var html = '';
-    window.DISCIPLINE.forEach(function (d, i) {
-      var data = d[currentLang] || d[DEFAULT_LANG];
-      var n = ('0' + (i + 1)).slice(-2);
-      var media = d.img
-        ? '<img src="' + d.img + '" alt="' + data.nome + '" loading="lazy" onerror="this.closest(\'.disc-row-media\').classList.add(\'no-image\')" />'
+    window.STORIA.forEach(function (s, i) {
+      var data = s[currentLang] || s[DEFAULT_LANG];
+      var side = (i % 2 === 0) ? 'left' : 'right';
+      var media = s.img
+        ? '<img src="' + s.img + '" alt="' + data.t + '" loading="lazy" onerror="this.closest(\'.tl-media\').classList.add(\'no-image\')" />'
         : '';
-      var mediaCls = d.img ? '' : ' no-image';
+      var mediaCls = s.img ? '' : ' no-image';
       html +=
-        '<article class="disc-row reveal in">' +
-          '<div class="disc-row-media' + mediaCls + '" data-label="' + data.nome + '">' + media + '</div>' +
-          '<div class="disc-row-text">' +
-            '<span class="disc-row-num">' + n + '</span>' +
-            '<h2 class="disc-row-name">' + data.nome + '</h2>' +
-            '<p class="disc-row-desc">' + data.desc + '</p>' +
+        '<article class="tl-item reveal" data-side="' + side + '">' +
+          '<div class="tl-dot" aria-hidden="true"></div>' +
+          '<div class="tl-card">' +
+            '<span class="tl-year">' + s.year + '</span>' +
+            '<div class="tl-media' + mediaCls + '" data-label="' + s.year + '">' + media + '</div>' +
+            '<h3 class="tl-title">' + data.t + '</h3>' +
+            '<p class="tl-text">' + data.d + '</p>' +
           '</div>' +
         '</article>';
     });
     box.innerHTML = html;
+    if (revealIO) observeReveals(box);  // re-render (es. cambio lingua): ri-osserva
   }
 
   /* -------------------------------------------------------------------
@@ -128,6 +216,7 @@
     // discipline (dipendono dalla lingua)
     renderDiscipline();
     renderDisciplineList();
+    renderStoriaTimeline();
   }
 
   function updateLangButtons() {
@@ -267,21 +356,31 @@
   /* -------------------------------------------------------------------
      5. REVEAL allo scroll (IntersectionObserver)
      ------------------------------------------------------------------- */
-  function initReveal() {
-    var items = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window) || !items.length) {
+  var revealIO = null;
+
+  /* Osserva (o rivela subito) tutti i .reveal non ancora visibili.
+     Richiamabile dopo un re-render (es. timeline al cambio lingua). */
+  function observeReveals(scope) {
+    var items = (scope || document).querySelectorAll('.reveal:not(.in)');
+    if (!revealIO) {
       items.forEach(function (el) { el.classList.add('in'); });
       return;
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    items.forEach(function (el) { io.observe(el); });
+    items.forEach(function (el) { revealIO.observe(el); });
+  }
+
+  function initReveal() {
+    if ('IntersectionObserver' in window) {
+      revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            revealIO.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    }
+    observeReveals(document);
   }
 
   /* -------------------------------------------------------------------
@@ -319,6 +418,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initTheme();    // applica tema chiaro/scuro
     initLang();     // applica lingua + genera discipline
+    initDisciplineCats();
     initHeroSlideshow();
     initHeader();
     initNav();
