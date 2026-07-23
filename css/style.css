@@ -669,17 +669,10 @@ ul { list-style: none; }
 .container--narrow { max-width: 760px; }
 
 .storia-intro { padding-bottom: 40px; }
-/* Storia: avvicina la narrazione (e la timeline che segue) al titolo hero,
-   evitando il grande respiro verticale di default tra hero e sezione. */
+/* Storia + Metodo: avvicinano la narrazione al titolo hero, evitando il grande
+   respiro verticale di default tra hero e sezione. Il metodo condivide la classe
+   .storia-intro, quindi usa lo stesso layout centrato (container--narrow). */
 .section.storia-intro { padding-top: 16px; }
-/* Pagina "Il nostro metodo": il testo deve stare vicino al titolo, non serve
-   il grande respiro verticale usato altrove tra hero e sezione successiva. */
-.section.method-intro { padding-top: 0; }
-/* Il testo del metodo deve allinearsi SOTTO il titolo (stesso bordo sinistro
-   dell'hero), non centrato: si allarga il container come l'hero e si limita
-   solo la larghezza di lettura dei paragrafi. */
-.method-intro .container--narrow { max-width: var(--maxw); }
-.method-intro .container--narrow > * { max-width: 720px; }
 .storia-h2 {
   font-family: var(--font-display); text-transform: uppercase; font-weight: 600;
   font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.08; letter-spacing: 0.01em;
