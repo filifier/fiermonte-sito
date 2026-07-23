@@ -169,6 +169,20 @@
       openCat = (openCat === cat) ? null : cat;  // ri-clic chiude
       syncDisciplineCats();
     });
+
+    // Arrivo dalla home con #boxing / #fitness: apri quella famiglia e scorri lì
+    var hash = (location.hash || '').replace('#', '');
+    if (hash === 'boxing' || hash === 'fitness') {
+      openCat = hash;
+      syncDisciplineCats();
+      setTimeout(function () {
+        var head = box.querySelector('.disc-cat-head[data-cat="' + hash + '"]');
+        if (!head) return;
+        var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 70;
+        var y = head.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 250);
+    }
   }
 
   /* Pagina "Storia del brand": timeline verticale scorrevole (dati window.STORIA).

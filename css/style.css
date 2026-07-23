@@ -452,6 +452,31 @@ ul { list-style: none; }
 }
 .discipline-card:hover::after { transform: scaleX(1); }
 
+/* Home: due famiglie Boxing / Fitness che portano a "Cosa offriamo" */
+.disc-home-cats { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.disc-home-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+  min-height: 220px; padding: 34px 30px;
+  background: var(--card-bg); border: 1px solid var(--line); color: var(--fg);
+  transition: background .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
+}
+.disc-home-card:hover { background: var(--card-bg-hover); border-color: var(--fg-faint); transform: translateY(-3px); }
+.disc-home-name {
+  font-family: var(--font-display); text-transform: uppercase; font-weight: 700;
+  font-size: clamp(2rem, 6vw, 3rem); line-height: 1; letter-spacing: 0.01em;
+}
+.disc-home-sub { color: var(--fg-muted); font-size: 1rem; max-width: 32ch; }
+.disc-home-more {
+  margin-top: auto; display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: 0.16em; font-size: 0.72rem; color: var(--fg);
+}
+.disc-home-arrow { width: 22px; height: 22px; flex: none; transition: transform .35s var(--ease); }
+.disc-home-card:hover .disc-home-arrow { transform: translateX(6px); }
+@media (min-width: 760px) {
+  .disc-home-cats { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
 /* =====================================================================
    4. IL NOSTRO PLUS
    ===================================================================== */

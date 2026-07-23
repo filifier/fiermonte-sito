@@ -19,7 +19,7 @@ window.TRANSLATIONS = {
     'nav.team': 'Team',
     'nav.calendar': 'Calendario',
     'nav.disciplines': 'Discipline',
-    'nav.list': 'Lista',
+    'nav.list': 'Cosa offriamo',
     'nav.plus': 'Il nostro metodo',
     'nav.community': 'Community',
     'nav.shop': 'Shop',
@@ -79,6 +79,7 @@ window.TRANSLATIONS = {
     /* --- 3. Discipline --- */
     'disc.overline': 'Discipline',
     'disc.title': 'Cosa alleni da noi',
+    'disc.home.cta': 'Clicca per saperne di più',
 
     /* --- 4. Il nostro metodo / Orari --- */
     'plus.overline': 'Il nostro metodo',
@@ -116,7 +117,7 @@ window.TRANSLATIONS = {
     'nav.team': 'Team',
     'nav.calendar': 'Calendar',
     'nav.disciplines': 'Disciplines',
-    'nav.list': 'List',
+    'nav.list': 'What we offer',
     'nav.plus': 'Our method',
     'nav.community': 'Community',
     'nav.shop': 'Shop',
@@ -176,6 +177,7 @@ window.TRANSLATIONS = {
     /* --- 3. Disciplines --- */
     'disc.overline': 'Disciplines',
     'disc.title': 'What you train here',
+    'disc.home.cta': 'Click to find out more',
 
     /* --- 4. Our method / Hours --- */
     'plus.overline': 'Our method',

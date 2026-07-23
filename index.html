@@ -37,8 +37,8 @@
 
       <div class="header-actions">
         <nav class="nav" id="mainNav" aria-label="Navigazione principale">
-          <div class="nav-item has-dropdown">
-            <button type="button" class="nav-link nav-dropdown-toggle" data-i18n="nav.home" aria-haspopup="true" aria-expanded="false">Home</button>
+          <div class="nav-item has-dropdown is-link">
+            <a href="#hero" class="nav-link nav-dropdown-toggle" data-i18n="nav.home">Home</a>
             <div class="nav-dropdown">
               <a href="#chi-siamo" class="nav-drop-link" data-i18n="nav.about">Chi siamo</a>
               <a href="storia.html" class="nav-drop-link" data-i18n="nav.history">Storia</a>
@@ -48,7 +48,7 @@
           <div class="nav-item has-dropdown is-link">
             <a href="#discipline" class="nav-link nav-dropdown-toggle" data-i18n="nav.disciplines">Discipline</a>
             <div class="nav-dropdown">
-              <a href="discipline.html" class="nav-drop-link" data-i18n="nav.list">Lista</a>
+              <a href="discipline.html" class="nav-drop-link" data-i18n="nav.list">Cosa offriamo</a>
               <a href="calendario.html" class="nav-drop-link" data-i18n="nav.calendar">Calendario</a>
             </div>
           </div>
@@ -140,9 +140,25 @@
           <p class="overline reveal" data-i18n="disc.overline">Discipline</p>
           <h2 class="section-title reveal" data-i18n="disc.title">Cosa alleni da noi</h2>
         </div>
-        <!-- Le schede sono generate da JS a partire da window.DISCIPLINE (js/i18n.js).
-             Per aggiungerne una in futuro basta aggiungere un oggetto li'. -->
-        <div class="disciplines-grid" id="disciplinesGrid"></div>
+        <!-- Due famiglie: Boxing / Fitness. Portano alla pagina "Cosa offriamo". -->
+        <div class="disc-home-cats">
+          <a href="discipline.html#boxing" class="disc-home-card reveal">
+            <span class="disc-home-name" data-i18n="disc.cat.boxing">Boxing</span>
+            <span class="disc-home-sub" data-i18n="disc.cat.boxing.sub">Il ring, dalla prima guardia al match</span>
+            <span class="disc-home-more">
+              <span data-i18n="disc.home.cta">Clicca per saperne di più</span>
+              <svg class="disc-home-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+          <a href="discipline.html#fitness" class="disc-home-card reveal">
+            <span class="disc-home-name" data-i18n="disc.cat.fitness">Fitness</span>
+            <span class="disc-home-sub" data-i18n="disc.cat.fitness.sub">Forza, cardio e mobilità, in gruppo</span>
+            <span class="disc-home-more">
+              <span data-i18n="disc.home.cta">Clicca per saperne di più</span>
+              <svg class="disc-home-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
 
