@@ -558,7 +558,10 @@ ul { list-style: none; }
 }
 
 /* Pagina Discipline (Lista): righe foto + descrizione */
-.page-hero--compact { min-height: auto; padding-bottom: 30px; border-bottom: none; }
+/* .section.page-hero--compact (doppia classe) per battere in specificità
+   la regola responsive ".section { padding-block }" a >=720px, che altrimenti
+   riporterebbe il padding-bottom al valore pieno su desktop/tablet. */
+.section.page-hero--compact { min-height: auto; padding-bottom: 30px; border-bottom: none; }
 /* Hero con video di sfondo + testo sovrapposto (stile hero home) */
 .disc-hero {
   position: relative;
@@ -666,11 +669,15 @@ ul { list-style: none; }
 .container--narrow { max-width: 760px; }
 
 .storia-intro { padding-bottom: 40px; }
+/* Pagina "Il nostro metodo": il testo deve stare vicino al titolo, non serve
+   il grande respiro verticale usato altrove tra hero e sezione successiva. */
+.section.method-intro { padding-top: 0; }
 .storia-h2 {
   font-family: var(--font-display); text-transform: uppercase; font-weight: 600;
   font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.08; letter-spacing: 0.01em;
   margin-bottom: 28px;
 }
+.method-support-title { margin-top: 16px; }
 .prose-p { color: var(--fg-muted); font-size: 1.08rem; line-height: 1.75; margin-bottom: 20px; }
 .prose-p:last-child { margin-bottom: 0; }
 .prose-list {

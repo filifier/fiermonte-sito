@@ -62,6 +62,8 @@ window.TRANSLATIONS = {
     'method.b1': 'Aumenta la resistenza cardiovascolare e polmonare.',
     'method.b2': 'Tonifica la muscolatura in modo armonico ed efficace.',
     'method.b3': 'Scarica lo stress della routine quotidiana.',
+    'method.support.title': 'Con te, sempre',
+    'method.support.body': "In sala trovi sempre un istruttore, dall'apertura alla chiusura: che tu venga alle 7 del mattino o alle 21 di sera, c'è sempre qualcuno che ti segue. Non ti alleni mai da solo.",
     'method.close': "Ieri come oggi, portiamo avanti la cultura del vero boxing fitness: stile vintage, metodo moderno, anima autentica.",
 
     /* --- 1. Hero --- */
@@ -160,6 +162,8 @@ window.TRANSLATIONS = {
     'method.b1': 'Builds cardiovascular and pulmonary endurance.',
     'method.b2': 'Tones the muscles in a balanced, effective way.',
     'method.b3': 'Releases the stress of everyday routine.',
+    'method.support.title': 'With you, always',
+    'method.support.body': "There's always a coach on the floor, from opening to closing: whether you come in at 7am or 9pm, someone is always there for you. You never train alone.",
     'method.close': 'Yesterday as today, we carry forward the culture of true boxing fitness: vintage style, modern method, authentic soul.',
 
     /* --- 1. Hero --- */
