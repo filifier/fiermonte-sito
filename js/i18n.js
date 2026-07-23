@@ -79,7 +79,7 @@ window.TRANSLATIONS = {
     /* --- 3. Discipline --- */
     'disc.overline': 'Discipline',
     'disc.title': 'Cosa alleni da noi',
-    'disc.home.cta': 'Clicca per saperne di più',
+    'disc.home.cta': 'Per saperne di più',
 
     /* --- 4. Il nostro metodo / Orari --- */
     'plus.overline': 'Il nostro metodo',
@@ -177,7 +177,7 @@ window.TRANSLATIONS = {
     /* --- 3. Disciplines --- */
     'disc.overline': 'Disciplines',
     'disc.title': 'What you train here',
-    'disc.home.cta': 'Click to find out more',
+    'disc.home.cta': 'Find out more',
 
     /* --- 4. Our method / Hours --- */
     'plus.overline': 'Our method',

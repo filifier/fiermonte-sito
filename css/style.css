@@ -407,7 +407,7 @@ ul { list-style: none; }
 /* =====================================================================
    3. DISCIPLINE
    ===================================================================== */
-.disciplines { background: var(--bg-alt); border-block: 1px solid var(--line); }
+.disciplines { background: var(--bg); border-block: 1px solid var(--line); }
 .disciplines-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -452,27 +452,22 @@ ul { list-style: none; }
 }
 .discipline-card:hover::after { transform: scaleX(1); }
 
-/* Home: due famiglie Boxing / Fitness che portano a "Cosa offriamo" */
-.disc-home-cats { display: grid; grid-template-columns: 1fr; gap: 16px; }
-.disc-home-card {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
-  min-height: 220px; padding: 34px 30px;
-  background: var(--card-bg); border: 1px solid var(--line); color: var(--fg);
-  transition: background .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
-}
-.disc-home-card:hover { background: var(--card-bg-hover); border-color: var(--fg-faint); transform: translateY(-3px); }
-.disc-home-name {
-  font-family: var(--font-display); text-transform: uppercase; font-weight: 700;
-  font-size: clamp(2rem, 6vw, 3rem); line-height: 1; letter-spacing: 0.01em;
-}
-.disc-home-sub { color: var(--fg-muted); font-size: 1rem; max-width: 32ch; }
+/* Home "Cosa offriamo": due schede Boxing / Fitness, identiche a quelle
+   della pagina Discipline, con freccia delicata "Per saperne di più".
+   Lo stile base è condiviso con .disc-cat-head (vedi pagina Discipline). */
+.disc-home-cats { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.disc-home-card { text-decoration: none; }
 .disc-home-more {
-  margin-top: auto; display: inline-flex; align-items: center; gap: 12px;
   font-family: var(--font-display); text-transform: uppercase;
-  letter-spacing: 0.16em; font-size: 0.72rem; color: var(--fg);
+  letter-spacing: 0.18em; font-size: 0.72rem; color: var(--fg-muted);
+  transition: color 0.4s var(--ease);
 }
-.disc-home-arrow { width: 22px; height: 22px; flex: none; transition: transform .35s var(--ease); }
-.disc-home-card:hover .disc-home-arrow { transform: translateX(6px); }
+.disc-home-arrow {
+  width: 18px; height: 18px; flex: none; color: var(--fg-muted);
+  transition: transform 0.4s var(--ease), color 0.4s var(--ease);
+}
+.disc-home-card:hover .disc-home-more { color: var(--fg); }
+.disc-home-card:hover .disc-home-arrow { transform: translateX(5px); color: var(--fg); }
 @media (min-width: 760px) {
   .disc-home-cats { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
@@ -592,7 +587,8 @@ ul { list-style: none; }
 
 /* Famiglie Boxing / Fitness: due schede affiancate, pannello a tutta larghezza */
 .disc-cats { display: grid; grid-template-columns: 1fr; gap: 18px; }
-.disc-cat-head {
+.disc-cat-head,
+.disc-home-card {
   display: flex; flex-direction: column; justify-content: space-between;
   gap: 40px; min-height: 210px; width: 100%;
   padding: 28px 26px; text-align: left; cursor: pointer;
@@ -602,7 +598,8 @@ ul { list-style: none; }
   font: inherit;
   transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
 }
-.disc-cat-head:hover { background: var(--bg); border-color: var(--fg-faint); }
+.disc-cat-head:hover,
+.disc-home-card:hover { background: var(--bg); border-color: var(--fg-faint); }
 .disc-cat-head.is-open { border-color: var(--fg); }
 .disc-cat-name {
   display: block;
